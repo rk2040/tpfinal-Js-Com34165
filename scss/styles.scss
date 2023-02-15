@@ -1,0 +1,296 @@
+@import "variablesGlobales";
+@import "generales";
+@import "fuentes";
+@import "iframes";
+@import "gridAreas";
+
+body{
+    background-color: azure;
+    width: 100%;
+    height:min-content;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+header{
+    max-height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+}
+
+.dark-mode{
+    background-color: black;
+    color: azure;
+
+    h1{
+        color: azure;
+    }
+    h2{
+        color: azure;
+    }
+    button{
+        color: azure;
+    }
+    input{
+        background-color: black;
+        color: azure;
+    }
+    select{
+        background-color: black;
+        color: azure;
+    }
+    .mapa{
+        iframe{
+            background-color: rgb(azure, 0.2);
+        }
+    }
+}
+
+input{
+    width: 175px;
+    height: 30px;
+    text-align: center;
+    font-size: large;
+}
+#valorRectangulo{
+    color: rgb(3, 162, 3);
+    font-weight: 500;
+    font-size: x-large;
+}
+#valorCirculo{
+    color: rgb(3, 162, 3);
+    font-weight: 500;
+    font-size: x-large;
+}
+
+button{
+    width: 180px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 30px;
+    font-size: large;
+}
+button:hover{
+    background-color: $color-base;
+    color: azure;
+} 
+.ordenAlfa{
+    background-color: rgb($color-btn-alfabeticamente, 0.5);
+}
+.ordenPrecio{
+    background-color: rgb($color-btn-precio, 0.5);
+}
+.ordenComuna{
+    background-color: rgb($color-btn-comuna, 0.5);
+}
+.ordenZona{background-color: rgb($color-btn-zona, 0.5);
+}
+.calcular{
+    background-color: rgb($color-btn-calculo, 0.5);
+}
+.borrar{
+    background-color: rgb($color-btn-reset, 0.5);
+}
+label{
+    font-size: large;
+}
+
+select{
+    font-size: large;
+}
+
+h1{
+    color: $color-base;
+    font-size: 50px;
+}
+h2{
+    color: $color-base;
+    font-size: 30px;
+}
+
+header{
+    @extend .box-color;
+    display: grid;
+    border: none;
+    
+    border-bottom: solid 30px $color-detalles;
+    border-radius: 0;
+}
+footer{
+    @extend .box-color;
+    max-height: 200px;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    border: none;
+
+    border-top: solid 30px $color-detalles;
+    border-radius: 0;
+    justify-content: space-between;
+    align-content: end;
+
+    position: absolute;
+    bottom: 10;
+}
+
+p{
+    font-size: 20px;
+}
+.ingreso{
+    max-height: 80px;
+    padding-right: 10px;
+}
+.saludoUs{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    font-weight: 600;
+}
+.login-us{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    button{
+        width: 80px;
+        height: 30px;
+        font-size: large;
+    }
+}
+
+.mapa{
+    @extend .box-color;
+    width: 90%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    iframe{
+        background-color: azure;
+    }
+}
+
+.titulo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.filtro{
+    @extend .box-color;
+    width: 90%;
+    height: auto;
+    margin-left: auto;
+    
+    .superficie{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        gap: 5px;
+        align-content: center;
+        margin-top: 40px;
+    }
+}
+
+.form{
+    @extend .box-color;
+    width: 90%;
+    height: auto;
+    margin-right: auto;
+    //margin-left: auto;
+    display: grid;
+    .input-form{
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.superficie-medidas {
+
+    /*  display:flex;
+    flex-direction: column;
+    align-items: center;
+     */
+    .input-form{
+        gap: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+.superficie-calculos{
+
+    /* display:flex;
+    flex-direction: column;
+    align-items: center; */
+
+    .input-form{
+        gap: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+#mensajeError{
+    color: red;
+    font-size: medium;
+}
+
+.contenedorTabla{
+    @extend .box-color;
+    border-radius: 10px;
+    width: 100%;
+    height: 300px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: large;
+    text-align: center;
+    overflow-y: scroll;
+    
+    table{
+        margin-left: auto;
+        margin-right: auto;
+        min-width: 200px;
+        
+        thead{
+            width: 100%;
+            background-color: rgb($color-btn-zona, 0.5);
+            border-radius: 10px;
+            th{
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+        
+        td{
+            background-color: rgb($color-btn-alfabeticamente, 0.5);
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+    }
+}
+//barra de scroll----------------------------
+.contenedorTabla::-webkit-scrollbar{
+    width: 10px;
+}
+.contenedorTabla::-webkit-scrollbar-thumb{
+    background: $color-detalles;
+    border-radius: 25px;
+}
+body::-webkit-scrollbar{
+    width: 10px;
+}
+body::-webkit-scrollbar-thumb{
+    background: rgba($color-principal, 0.4);
+}

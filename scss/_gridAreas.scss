@@ -1,0 +1,178 @@
+
+header{
+    grid-area: head;
+}
+.tituloH1{
+    grid-area: h1;
+}
+.botonDark{
+    grid-area: dark;
+}
+.form-check{
+    input{
+        grid-area: check;
+    }
+}
+.form-check .form-switch{
+    label{
+        grid-area: check;
+    }
+}
+.ingreso{
+    grid-area: ingreso;
+}
+.login-us{
+    grid-area: login;
+}
+.saludoUs{
+    grid-area: saludo;
+}
+
+.mapa{
+    grid-area: mapa;
+}
+
+.filtro{
+    grid-area: filtro;
+}
+
+.medidas{
+    grid-area: medidas;
+}
+
+.calculos{
+    grid-area: calculos;
+}
+
+.contenedorTabla{
+    grid-area: tabla;
+}
+
+footer{
+    grid-area: footer; 
+}
+
+.container-header{
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 2fr, 0.2fr;
+    flex-direction: row;
+    justify-content: center;
+    
+    grid-template-areas:
+    "h1     h1      h1"
+    ". .    dark"
+    ;
+    h1{
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+    .botonDark{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+}
+
+.container-grid{
+    height: auto;
+    margin: auto;
+    row-gap: 20px;
+    column-gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 0.2fr 0.02fr 0.8fr 0.5fr 0.5fr 0.1fr;
+    flex-direction: column;
+    justify-content: center;
+
+    grid-template-areas:
+    "head   head    head     head"
+    "ingreso ingreso ingreso ingreso"
+    "mapa   mapa    mapa     mapa"
+    "filtro filtro  medidas  medidas"
+    "filtro filtro  calculos calculos"
+    "footer footer  footer   footer"
+    ;
+}
+
+.ingreso{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    flex-direction: row;
+    /* align-items: stretch; */
+    
+    grid-template-areas:
+    "login"
+    "saludo";
+}
+
+h2 .titulo{
+    grid-area: tituloH2;
+}
+label{
+    grid-area: labe;
+}
+input{
+    grid-area: input;
+}
+.selMedidas{
+    grid-area: select;
+}
+
+.superficie-medidas{
+    height: auto;
+    margin: auto;
+    row-gap: 20px;
+    column-gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+    justify-items: start;
+    align-items: center;
+
+    grid-template-areas:
+    "labe       input"
+    "labe       input"
+    "labe       input"
+    "labe       input"
+    "labe       select"
+    ;
+}
+
+.msjError{
+    grid-area: error;
+}
+/* #mts2{
+    grid-area: mts;
+}
+#valorTotal{
+    grid-area: total;
+}
+.borrar{
+    grid-area: borrar;
+} */
+.boton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.superficie-calculos{
+    height: auto;
+    margin: auto;
+    row-gap: 20px;
+    column-gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.2fr;
+    justify-items: start;
+    align-items: center;
+
+    grid-template-areas:
+    "labe       input"
+    "labe       input"
+    "labe       input"
+    "labe       input"
+    "error      error"
+    ;
+}

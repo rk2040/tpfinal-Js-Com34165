@@ -1,0 +1,482 @@
+/* Reset */
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;200;300;400;500;600;700;900&family=Merriweather+Sans:wght@300;400;500;600;700;800&family=Overpass:wght@100;200;300;400;500;600;700;800&family=Pridi:wght@300;400;500;600;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+/* Font size: 10px = 1em */
+html {
+  font-size: 62.5%;
+}
+
+/* extend */
+.box-color, .contenedorTabla, .form, .filtro, .mapa, footer, header {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  background-color: rgba(22, 147, 181, 0.4);
+  border: solid rgb(177, 87, 87);
+  border-radius: 20px;
+}
+
+/* Fin extend */
+iframe .mapa-iframe {
+  min-width: none;
+  height: auto;
+  margin: auto;
+}
+
+header {
+  grid-area: head;
+}
+
+.tituloH1 {
+  grid-area: h1;
+}
+
+.botonDark {
+  grid-area: dark;
+}
+
+.form-check input {
+  grid-area: check;
+}
+
+.form-check .form-switch label {
+  grid-area: check;
+}
+
+.ingreso {
+  grid-area: ingreso;
+}
+
+.login-us {
+  grid-area: login;
+}
+
+.saludoUs {
+  grid-area: saludo;
+}
+
+.mapa {
+  grid-area: mapa;
+}
+
+.filtro {
+  grid-area: filtro;
+}
+
+.medidas {
+  grid-area: medidas;
+}
+
+.calculos {
+  grid-area: calculos;
+}
+
+.contenedorTabla {
+  grid-area: tabla;
+}
+
+footer {
+  grid-area: footer;
+}
+
+.container-header {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 2fr, 0.2fr;
+  flex-direction: row;
+  justify-content: center;
+  grid-template-areas: "h1     h1      h1" ". .    dark";
+}
+.container-header h1 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.container-header .botonDark {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.container-grid {
+  height: auto;
+  margin: auto;
+  row-gap: 20px;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 0.2fr 0.02fr 0.8fr 0.5fr 0.5fr 0.1fr;
+  flex-direction: column;
+  justify-content: center;
+  grid-template-areas: "head   head    head     head" "ingreso ingreso ingreso ingreso" "mapa   mapa    mapa     mapa" "filtro filtro  medidas  medidas" "filtro filtro  calculos calculos" "footer footer  footer   footer";
+}
+
+.ingreso {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  flex-direction: row;
+  /* align-items: stretch; */
+  grid-template-areas: "login" "saludo";
+}
+
+h2 .titulo {
+  grid-area: tituloH2;
+}
+
+label {
+  grid-area: labe;
+}
+
+input {
+  grid-area: input;
+}
+
+.selMedidas {
+  grid-area: select;
+}
+
+.superficie-medidas {
+  height: auto;
+  margin: auto;
+  row-gap: 20px;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  justify-items: start;
+  align-items: center;
+  grid-template-areas: "labe       input" "labe       input" "labe       input" "labe       input" "labe       select";
+}
+
+.msjError {
+  grid-area: error;
+}
+
+/* #mts2{
+    grid-area: mts;
+}
+#valorTotal{
+    grid-area: total;
+}
+.borrar{
+    grid-area: borrar;
+} */
+.boton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.superficie-calculos {
+  height: auto;
+  margin: auto;
+  row-gap: 20px;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.2fr;
+  justify-items: start;
+  align-items: center;
+  grid-template-areas: "labe       input" "labe       input" "labe       input" "labe       input" "error      error";
+}
+
+body {
+  background-color: azure;
+  width: 100%;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+header {
+  max-height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+}
+
+.dark-mode {
+  background-color: black;
+  color: azure;
+}
+.dark-mode h1 {
+  color: azure;
+}
+.dark-mode h2 {
+  color: azure;
+}
+.dark-mode button {
+  color: azure;
+}
+.dark-mode input {
+  background-color: black;
+  color: azure;
+}
+.dark-mode select {
+  background-color: black;
+  color: azure;
+}
+.dark-mode .mapa iframe {
+  background-color: rgba(240, 255, 255, 0.2);
+}
+
+input {
+  width: 175px;
+  height: 30px;
+  text-align: center;
+  font-size: large;
+}
+
+#valorRectangulo {
+  color: rgb(3, 162, 3);
+  font-weight: 500;
+  font-size: x-large;
+}
+
+#valorCirculo {
+  color: rgb(3, 162, 3);
+  font-weight: 500;
+  font-size: x-large;
+}
+
+button {
+  width: 180px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 30px;
+  font-size: large;
+}
+
+button:hover {
+  background-color: #322046;
+  color: azure;
+}
+
+.ordenAlfa {
+  background-color: rgba(237, 237, 237, 0.5);
+}
+
+.ordenPrecio {
+  background-color: rgba(255, 179, 0, 0.5);
+}
+
+.ordenComuna {
+  background-color: rgba(255, 238, 0, 0.5);
+}
+
+.ordenZona {
+  background-color: rgba(0, 132, 255, 0.5);
+}
+
+.calcular {
+  background-color: rgba(13, 255, 0, 0.5);
+}
+
+.borrar {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+label {
+  font-size: large;
+}
+
+select {
+  font-size: large;
+}
+
+h1 {
+  color: #322046;
+  font-size: 50px;
+}
+
+h2 {
+  color: #322046;
+  font-size: 30px;
+}
+
+header {
+  display: grid;
+  border: none;
+  border-bottom: solid 30px rgb(177, 87, 87);
+  border-radius: 0;
+}
+
+footer {
+  max-height: 200px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-top: solid 30px rgb(177, 87, 87);
+  border-radius: 0;
+  justify-content: space-between;
+  align-content: end;
+  position: absolute;
+  bottom: 10;
+}
+
+p {
+  font-size: 20px;
+}
+
+.ingreso {
+  max-height: 80px;
+  padding-right: 10px;
+}
+
+.saludoUs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+  font-weight: 600;
+}
+
+.login-us {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+}
+.login-us button {
+  width: 80px;
+  height: 30px;
+  font-size: large;
+}
+
+.mapa {
+  width: 90%;
+  height: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mapa iframe {
+  background-color: azure;
+}
+
+.titulo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filtro {
+  width: 90%;
+  height: auto;
+  margin-left: auto;
+}
+.filtro .superficie {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-content: center;
+  margin-top: 40px;
+}
+
+.form {
+  width: 90%;
+  height: auto;
+  margin-right: auto;
+  display: grid;
+}
+.form .input-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.superficie-medidas {
+  /*  display:flex;
+  flex-direction: column;
+  align-items: center;
+   */
+}
+.superficie-medidas .input-form {
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.superficie-calculos {
+  /* display:flex;
+  flex-direction: column;
+  align-items: center; */
+}
+.superficie-calculos .input-form {
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#mensajeError {
+  color: red;
+  font-size: medium;
+}
+
+.contenedorTabla {
+  border-radius: 10px;
+  width: 100%;
+  height: 300px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: large;
+  text-align: center;
+  overflow-y: scroll;
+}
+.contenedorTabla table {
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 200px;
+}
+.contenedorTabla table thead {
+  width: 100%;
+  background-color: rgba(0, 132, 255, 0.5);
+  border-radius: 10px;
+}
+.contenedorTabla table thead th {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.contenedorTabla table td {
+  background-color: rgba(237, 237, 237, 0.5);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.contenedorTabla::-webkit-scrollbar {
+  width: 10px;
+}
+
+.contenedorTabla::-webkit-scrollbar-thumb {
+  background: rgb(177, 87, 87);
+  border-radius: 25px;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(22, 147, 181, 0.4);
+}/*# sourceMappingURL=styles.css.map */
