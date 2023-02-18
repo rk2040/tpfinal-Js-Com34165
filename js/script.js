@@ -1,13 +1,24 @@
 let cuerpoTabla = document.getElementById("cuerpoTabla");
 let mensajeDeError = document.getElementById("mensajeError");
-const rutaBarrios ="/js/barrios.json";
+let load = document.getElementById("loader");
 
+const rutaBarrios = "/js/barrios.json";
+load.style.display="none";
 
 function mostrarLista(lista){
     borrarTabla();
+    load.style.display="";
     lista.forEach(element => {
-        cuerpoTabla.innerHTML += `<tr> <td> ${element.nombre} </td><td> ${element.zona} </td><td> ${element.comuna} </td><td> ${element.precio} </td> </tr>`;
+        setTimeout( () => {
+            load.style.display="none";
+            cuerpoTabla.innerHTML += `<tr> <td> ${element.nombre} </td><td> ${element.zona} </td><td> ${element.comuna} </td><td> ${element.precio} </td> </tr>`;
+        }, 1000)
     });
+        /* for(let i=0; i<lista.length; i++){
+            setTimeout( () => {
+                cuerpoTabla.innerHTML += `<tr> <td> ${lista[i].nombre} </td><td> ${lista[i].zona} </td><td> ${lista[i].comuna} </td><td> ${lista[i].precio} </td> </tr>`;
+            }, i*300)
+        } */
     return lista;
 }
 
