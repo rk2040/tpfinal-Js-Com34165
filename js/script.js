@@ -1,76 +1,84 @@
 let cuerpoTabla = document.getElementById("cuerpoTabla");
 let mensajeDeError = document.getElementById("mensajeError");
+const rutaBarrios ="/js/barrios.json";
 
-// ------------------------------------------------------------------------
+
 function mostrarLista(lista){
-    let total = lista.length;
     borrarTabla();
-    for(let i=0; i<total; i++)
-        cuerpoTabla.innerHTML += `<tr> <td> ${lista[i].nombre} </td><td> ${lista[i].zona} </td><td> ${lista[i].comuna} </td><td> ${lista[i].precio} </td> </tr>`;
-    //cuerpoTabla.innerHTML = lista.map(el => `<tr> <td> ${el.nombre} </td><td> ${el.zona} </td><td> ${el.comuna} </td><td> ${el.precio} </td></tr>`); // aparece una "," entre td y td
+    lista.forEach(element => {
+        cuerpoTabla.innerHTML += `<tr> <td> ${element.nombre} </td><td> ${element.zona} </td><td> ${element.comuna} </td><td> ${element.precio} </td> </tr>`;
+    });
     return lista;
 }
-// ------------------------------------------------------------------------
+
 function borrarTabla(){
     cuerpoTabla.innerHTML = "";
 }
-// ------------------------------------------------------------------------
-// ------------------------------------------------------------------------
+
 function filtroComuna(comuna){
-    let resultado = listaBarrios.filter(comunas => comunas.comuna === comuna);
-    guardarTablaLocalStorage(resultado);
-    mostrarLista(resultado);
+    let resultado;
+    fetch(rutaBarrios)
+        .then( (res) => res.json() )
+        .then( (lista) => {
+            resultado = lista.filter(comunas => comunas.comuna === comuna);
+            guardarTablaLocalStorage(resultado);
+            mostrarLista(resultado);
+        })
     return resultado;
 }
-// ------------------------------------------------------------------------
-// ------------------------------------------------------------------------
+
 function ordenAlfabeticamente(tipoOrden){
-    let listaAux = listaBarrios;
-    if(tipoOrden === "todo az")
-    {
-        listaAux.sort( (a,b)=>{
-            if(a.nombre < b.nombre) return  -1;
-            if(a.nombre > b.nombre) return  1;
-            return 0;
-        } );
-    }
-    else{
-        listaAux.sort( (a,b)=>{
-            if(b.nombre < a.nombre) return  -1;
-            if(b.nombre > a.nombre) return  1;
-            return 0;
-        } );
-    }
-    guardarTablaLocalStorage(listaAux);
-    mostrarLista(listaAux);
-    return listaAux;
+    fetch(rutaBarrios)
+    .then( (res) => res.json() )
+    .then( (lista) => {
+        if(tipoOrden === "todo az")
+        {
+            lista.sort( (a,b)=>{
+                if(a.nombre < b.nombre) return  -1;
+                if(a.nombre > b.nombre) return  1;
+                return 0;
+            } );
+        }
+        else{
+            lista.sort( (a,b)=>{
+                if(b.nombre < a.nombre) return  -1;
+                if(b.nombre > a.nombre) return  1;
+                return 0;
+            } );
+        }
+        guardarTablaLocalStorage(lista);
+        mostrarLista(lista);
+    })
+    return lista;
 }
-// ------------------------------------------------------------------------
-// ------------------------------------------------------------------------
+
 function ordenPrecio(tipoOrden){
-    let listaAux = listaBarrios;
-    if(tipoOrden === "mayor precio") listaAux.sort((a,b) => b.precio - a.precio);
-    else listaAux.sort((a,b) => a.precio - b.precio);
-
-    guardarTablaLocalStorage(listaAux);
-    mostrarLista(listaAux);
-    return listaAux;
+    fetch(rutaBarrios)
+        .then( (res)=> res.json() )
+        .then( (lista) => {
+            tipoOrden === "mayor precio" ? lista.sort((a,b) => b.precio - a.precio) : lista.sort((a,b) => a.precio - b.precio)
+            guardarTablaLocalStorage(lista);
+            mostrarLista(lista);
+        })
+    return lista;
 }
-// ------------------------------------------------------------------------
-// ------------------------------------------------------------------------
+
 function ordenZona(tipoOrden){
-    let listaAux;
-    if(tipoOrden === "Este") listaAux = listaBarrios.filter((zona) => zona.zona.includes(tipoOrden));
-    else if(tipoOrden === "Oeste") listaAux = listaBarrios.filter((zona) => zona.zona.includes(tipoOrden));
-    else if(tipoOrden === "Norte") listaAux = listaBarrios.filter((zona) => zona.zona.includes(tipoOrden));
-    else listaAux = listaBarrios.filter((zona) => zona.zona.includes(tipoOrden)); //Sur
-
-    guardarTablaLocalStorage(listaAux);
-    mostrarLista(listaAux);
-    return listaAux;
+    let resultado;
+    fetch(rutaBarrios)
+        .then( (res) => res.json() )
+        .then( (lista) => {
+            if(tipoOrden === "Este") resultado = lista.filter((barrio) => barrio.zona.includes(tipoOrden));
+            else if(tipoOrden === "Oeste") resultado = lista.filter((barrio) => barrio.zona.includes(tipoOrden));
+            else if(tipoOrden === "Norte") resultado = lista.filter((barrio) => barrio.zona.includes(tipoOrden));
+            else resultado = lista.filter((barrio) => barrio.zona.includes(tipoOrden)); //Sur
+            
+            mostrarLista(resultado);
+            guardarTablaLocalStorage(resultado);
+        })
+    return resultado;
 }
-// ------------------------------------------------------------------------
-// ------------------------------------------------------------------------
+
 function calcularSuperficie(medida1, medida2) {
     let areaRectangulo = medida1*medida2;
     
@@ -83,7 +91,7 @@ function calcularSuperficie(medida1, medida2) {
         return areaRectangulo;
     }
 }
-// ------------------------------------------------------------------------
+
 function calcularSuperficieCirculo(medida1, medida2) {
     let radio;
     let areaCirculo;
@@ -107,7 +115,7 @@ function calcularSuperficieCirculo(medida1, medida2) {
         return areaCirculo; 
     }
 }
-// ------------------------------------------------------------------------
+
 function mostrarMts2(){
     let medida1 = parseFloat (document.getElementById("largo").value);
     let medida2 = parseFloat (document.getElementById("ancho").value);
@@ -115,8 +123,7 @@ function mostrarMts2(){
     document.getElementById("metrosRectangulo").value = calcularSuperficie(medida1, medida2).toFixed(2);
     document.getElementById("metrosCirculo").value = calcularSuperficieCirculo(medida1, medida2).toFixed(2);
 }
-// ------------------------------------------------------------------------
-// ------------------------------------------------------------------------
+
 function calcularValorTotal(num1, num2) {
     let resultado = num1*num2;
 
@@ -129,7 +136,7 @@ function calcularValorTotal(num1, num2) {
         return resultado.toFixed(2);
     } 
 }
-// ------------------------------------------------------------------------
+
 function mostrarValorTotal(){
     let metroCirculo = parseFloat (document.getElementById("metrosCirculo").value);
     let metroRectangulo = parseFloat (document.getElementById("metrosRectangulo").value);
@@ -138,8 +145,7 @@ function mostrarValorTotal(){
     document.getElementById("valorRectangulo").value = calcularValorTotal(metroRectangulo, precio);
     document.getElementById("valorCirculo").value = calcularValorTotal(metroCirculo, precio);
 }
-// ------------------------------------------------------------------------
-// ------------------------------------------------------------------------
+
 function precioBarrio(){
     listaAux = listaBarrios;
 
@@ -153,8 +159,7 @@ function precioBarrio(){
 
     document.getElementById("valorMetro").value = valorMetro;
 }
-// ------------------------------------------------------------------------
-// ------------------------------------------------------------------------
+
 function borrar(){
     document.getElementById("largo").value = "";
     document.getElementById("ancho").value = "";

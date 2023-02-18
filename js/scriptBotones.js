@@ -18,9 +18,10 @@ btnBusqueda.innerHTML += `<button class="ordenPrecio" id="menor precio" type="bu
 for(let i=1; i<=15; i++){
     btnBusqueda.innerHTML += `<button class="ordenComuna" id="Comuna ${i}" type="button" onclick="filtroComuna(this.id)">Comuna ${i}</button>`;
 }
-btnBusqueda.innerHTML += `<button id="" type="button" onclick="click_button(this.id)" disabled></button>`; // Boton de relleno
+//btnBusqueda.innerHTML += `<button id="" type="button" onclick="click_button(this.id)" disabled></button>`; // Boton de relleno
 //----------------------------------
 // Botones Filtro por Zona
+btnBusqueda.innerHTML += `<button class="ordenZona" id="Centro" type="button" onclick="ordenZona(this.id)">Zona Centro</button>`;
 btnBusqueda.innerHTML += `<button class="ordenZona" id="Este" type="button" onclick="ordenZona(this.id)">Zona Este</button>`;
 btnBusqueda.innerHTML += `<button class="ordenZona" id="Oeste" type="button" onclick="ordenZona(this.id)">Zona Oeste</button>`;
 btnBusqueda.innerHTML += `<button class="ordenZona" id="Norte" type="button" onclick="ordenZona(this.id)">Zona Norte</button>`;

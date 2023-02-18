@@ -1,15 +1,29 @@
-
-/* class Barrio {
-    constructor(nombre, zona, comuna, precio)
-    {
-        this.nombre = nombre;
-        this.zona = zona;
-        this.comuna = comuna;
-        this.precio = precio;
-    }
+function mostrarMensaje() {
+    Swal.fire({
+        title: '¿Estas ahi?',
+        text: 'Vemos que hace 5 segundos no mueves el mouse',
+        icon: 'question',
+        showCancelButton: false,
+        showConfirmButton: false
+    })
 }
+
+let myTimeout = setTimeout(mostrarMensaje, 5000);
+
+function cerrarMensaje() {
+    Swal.close()
+}
+
+function reiniciarContador() {
+    cerrarMensaje()
+    clearTimeout(myTimeout);
+    myTimeout = setTimeout(mostrarMensaje, 5000);
+}
+//document.addEventListener("mousemove", reiniciarContador)
+
+
 // creo los objetos
-const barrio1 = new Barrio("Agronomia", "Centro", "Comuna 15", 1597);
+/* const barrio1 = new Barrio("Agronomia", "Centro", "Comuna 15", 1597);
 const barrio2 = new Barrio("Almagro", "Centro", "Comuna 5", 1685);
 const barrio3 = new Barrio("Balvanera", "Sur", "Comuna 4", 1478);
 const barrio4 = new Barrio("Barracas", "Centro", "Comuna 15", 1597);
@@ -55,13 +69,12 @@ const barrio43 = new Barrio("Villa Real", "Oeste", "Comuna 10", 1575);
 const barrio44 = new Barrio("Villa Santa Rita", "Oeste", "Comuna 11", 1485);
 const barrio45 = new Barrio("Villa Soldati", "Sur", "Comuna 8", 899);
 const barrio46 = new Barrio("Villa Urquiza", "Norte", "Comuna 12", 1939);
-
+ */
 //array con los objetos
-const listaBarrios = [
+/* const listaBarrios = [
     barrio1,barrio2,barrio3,barrio4,barrio5,barrio6,barrio7,barrio8,barrio9,barrio10,
     barrio11,barrio12,barrio13,barrio14,barrio15,barrio16,barrio17,barrio18,barrio19,
     barrio20,barrio21,barrio22,barrio23,barrio24,barrio25,barrio26,barrio27,barrio28,
     barrio29,barrio30,barrio31,barrio32,barrio33,barrio34,barrio35,barrio36,barrio37,
     barrio38,barrio39,barrio40,barrio41,barrio42,barrio43,barrio44,barrio45,barrio46
-];
- */
+]; */

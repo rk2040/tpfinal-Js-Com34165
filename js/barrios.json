@@ -1,0 +1,288 @@
+[
+    {
+        "nombre" : "Agronomia",
+        "zona" : "Centro",
+        "comuna" : "Comuna 15",
+        "precio" : 1597
+    },
+    {
+        "nombre" : "Almagro", 
+        "zona" : "Centro",
+        "comuna" : "Comuna 5",
+        "precio" : 1685
+    },
+    {
+        "nombre" : "Balvanera",
+        "zona" : "Sur",
+        "comuna" : "Comuna 4",
+        "precio" : 1478
+    },
+    {
+        "nombre" : "Barracas",
+        "zona" : "Centro",
+        "comuna" : "Comuna 15",
+        "precio" : 1597
+    },
+    {
+        "nombre" : "Belgrano",
+        "zona" : "Norte",
+        "comuna" : "Comuna 13",
+        "precio" : 2138
+    },
+    {
+        "nombre" : "Boedo",
+        "zona" : "Centro",
+        "comuna" : "Comuna 5",
+        "precio" : 1570
+    },
+    {
+        "nombre" : "Caballito",
+        "zona" : "Centro",
+        "comuna" : "Comuna 6",
+        "precio" : 1861
+    },
+    {
+        "nombre" : "Caballito",
+        "zona" : "Centro",
+        "comuna" : "Comuna 6",
+        "precio" : 1861
+    },
+    {
+        "nombre" : "Chacarita",
+        "zona" : "Centro",
+        "comuna" : "Comuna 15",
+        "precio" : 1658
+    },
+    {
+        "nombre" : "Coghlan",
+        "zona" : "Norte",
+        "comuna" : "Comuna 13",
+        "precio" : 1803
+    },
+    {
+        "nombre" : "Colegiales",
+        "zona" : "Norte",
+        "comuna" : "Comuna 13",
+        "precio" : 1912
+    },
+    {
+        "nombre" : "Constitucion",
+        "zona" : "Este",
+        "comuna" : "Comuna 1",
+        "precio" : 1161
+    },
+    {
+        "nombre" : "Flores",
+        "zona" : "Centro",
+        "comuna" : "Comuna 7",
+        "precio" : 1542
+    },
+    {
+        "nombre" : "Floresta",
+        "zona" : "Oeste",
+        "comuna" : "Comuna 10",
+        "precio" :  1449
+    },
+    {
+        "nombre" : "La Boca", 
+        "zona" : "Sur", 
+        "comuna" : "Comuna 4", 
+        "precio" : 1150
+    },
+    {
+        "nombre" : "La Paternal", 
+        "zona" : "Centro", 
+        "comuna" : "Comuna 15", 
+        "precio" : 1456
+    },
+    {
+        "nombre" : "Liniers", 
+        "zona" : "Oeste", 
+        "comuna" : "Comuna 9", 
+        "precio" : 1502
+    },
+    {
+        "nombre" : "Mataderos", 
+        "zona" : "Oeste", 
+        "comuna" : "Comuna 9", 
+        "precio" : 1416
+    },
+    {
+        "nombre" : "Monserrat", 
+        "zona" : "Este", 
+        "comuna" : "Comuna 1", 
+        "precio" : 1448
+    },
+    {
+        "nombre" : "Monte Castro", 
+        "zona" : "Oeste", 
+        "comuna" : "Comuna 10", 
+        "precio" : 1574
+    },
+    {
+        "nombre" : "Nueva Pompeya", 
+        "zona" : "Sur", 
+        "comuna" : "Comuna 4", 
+        "precio" : 1097
+    },
+    {
+        "nombre" : "Nuñez", 
+        "zona" : "Norte", 
+        "comuna" : "Comuna 13", 
+        "precio" : 2020
+    },
+    {
+        "nombre" : "Palermo", 
+        "zona" : "Norte", 
+        "comuna" : "Comuna 14", 
+        "precio" : 2079
+    },
+    {
+        "nombre" : "Parque Avellaneda", 
+        "zona" : "Oeste", 
+        "comuna" : "Comuna 9", 
+        "precio" : 1262
+    },
+    {
+        "nombre" : "Parque Chacabuco", 
+        "zona" : "Centro", 
+        "comuna" : "Comuna 7", 
+        "precio" : 1560
+    },
+    {
+        "nombre" : "Parque Chas", 
+        "zona" : "Centro", 
+        "comuna" : "Comuna 15", 
+        "precio" : 1640
+    },
+    {
+        "nombre" : "Parque Patricios", 
+        "zona" : "Sur", 
+        "comuna" : "Comuna 4", 
+        "precio" : 1337
+    },
+    {
+        "nombre" : "Puerto Madero", 
+        "zona" : "Este", 
+        "comuna" : "Comuna 1", 
+        "precio" : 3993
+    },
+    {
+        "nombre" : "Recoleta", 
+        "zona" : "Norte", 
+        "comuna" : "Comuna 2", 
+        "precio" : 1978
+    },
+    {
+        "nombre" : "Retiro", 
+        "zona" : "Este", 
+        "comuna" : "Comuna 1", 
+        "precio" : 1682
+    },
+    {
+        "nombre" : "Saavedra", 
+        "zona" : "Norte", 
+        "comuna" : "Comuna 12", 
+        "precio" : 1803
+    },
+    {
+        "nombre" : "San Cristobal", 
+        "zona" : "Este", 
+        "comuna" : "Comuna 3", 
+        "precio" : 1443
+    },
+    {
+        "nombre" : "San Nicolas", 
+        "zona" : "Este", 
+        "comuna" : "Comuna 1", 
+        "precio" : 1431
+    },
+    {
+        "nombre" : "San Telmo", 
+        "zona" : "Este", 
+        "comuna" : "Comuna 1", 
+        "precio" : 1537
+    },
+    {
+        "nombre" : "Versalles", 
+        "zona" : "Oeste", 
+        "comuna" : "Comuna 10", 
+        "precio" : 1472
+    },
+    {
+        "nombre" : "Villa Crespo", 
+        "zona" : "Centro", 
+        "comuna" : "Comuna 15", 
+        "precio" : 1709
+    },
+    {
+        "nombre" : "Villa Del Parque", 
+        "zona" : "Oeste", 
+        "comuna" : "Comuna 11", 
+        "precio" : 1685
+    },
+    {
+        "nombre" : "Villa Devoto", 
+        "zona" : "Oeste", 
+        "comuna" : "Comuna 11", 
+        "precio" : 1756
+    },
+    {
+        "nombre" : "Villa General Mitre", 
+        "zona" : "Oeste", 
+        "comuna" : "Comuna 11", 
+        "precio" : 1501
+    },
+    {
+        "nombre" : "Villa Lugano", 
+        "zona" : "Sur", 
+        "comuna" : "Comuna 8", 
+        "precio" : 1097
+    },
+    {
+        "nombre" : "Villa Luro", 
+        "zona" : "Oeste", 
+        "comuna" : "Comuna 10", 
+        "precio" : 1501
+    },
+    {
+        "nombre" : "Villa Ortuzar", 
+        "zona" : "Centro", 
+        "comuna" : "Comuna 15", 
+        "precio" : 1617
+    },
+    {
+        "nombre" : "Villa Pueyrredon", 
+        "zona" : "Norte", 
+        "comuna" : "Comuna 12", 
+        "precio" : 1677
+    },
+    {
+        "nombre" : "Villa Real", 
+        "zona" : "Oeste", 
+        "comuna" : "Comuna 10", 
+        "precio" : 1575
+    },
+    {
+        "nombre" : "Villa Santa Rita", 
+        "zona" : "Oeste", 
+        "comuna" : "Comuna 11", 
+        "precio" : 1485
+    },
+    {
+        "nombre" : "Villa Soldati", 
+        "zona" : "Sur", 
+        "comuna" : "Comuna 8", 
+        "precio" : 899
+    },
+    {
+        "nombre" : "Villa Urquiza", 
+        "zona" : "Norte", 
+        "comuna" : "Comuna 12", 
+        "precio" : 1939
+    }
+]
+
+
+
+

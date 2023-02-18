@@ -16,13 +16,14 @@ const body = document.body;
 
 let darkMode = localStorage.getItem("dark-mode");
 
-/* function activarDarkMode(){
-    darkMode === "activado"  ? localStorage.setItem("dark-mode" , "activado") : localStorage.setItem("dark-mode", "desactivado");
-    darkMode === "activado" ? body.classList.add("dark-mode") : body.classList.remove("dark-mode");
-    //activado ? body.className += 'dark-mode': (body.className = body.className.replace("dark-mode",''));
-}
-if(darkMode === "activado") activarDarkMode();
-else desactivarDarkMode();
+/*function activarDarkMode(boton){
+    boton === "activado"  ? localStorage.setItem("dark-mode" , "activado") : localStorage.setItem("dark-mode", "desactivado");
+    boton === "activado" ? body.classList.add("dark-mode") : body.classList.remove("dark-mode");
+    //boton == true ? body.className += 'dark-mode': (body.className = body.className.replace("dark-mode",''));
+} 
+if(darkMode === "activado") activarDarkMode(darkMode.value==="activado");
+else activarDarkMode(darkMode); 
+
 btnDarkMode.addEventListener("click", () => {
     darkMode = localStorage.getItem("dark-mode");
     activarDarkMode(darkMode);
