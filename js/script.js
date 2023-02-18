@@ -11,7 +11,7 @@ const precioTotalRectangulo = document.getElementById("valorRectangulo");
 const precioTotalCirculo = document.getElementById("valorCirculo");
 
 const load = document.getElementById("loader");
-const rutaBarrios = "/js/barrios.json";
+const rutaBarrios = "./js/barrios.json";
 
 load.style.display="none";
 
