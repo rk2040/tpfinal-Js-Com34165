@@ -1,24 +1,30 @@
-let cuerpoTabla = document.getElementById("cuerpoTabla");
-let mensajeDeError = document.getElementById("mensajeError");
-let load = document.getElementById("loader");
+const cuerpoTabla = document.getElementById("cuerpoTabla");
+const mensajeDeError = document.getElementById("mensajeError");
+const msjError = "No se pudo calcular porque falta alguno de los valores."
+const mtsRectangulo = document.getElementById("metrosRectangulo");
+const mtsCirculo = document.getElementById("metrosCirculo");
+const mtsLargo = document.getElementById("largo");
+const mtsAncho = document.getElementById("ancho");
+const mtsRadio = document.getElementById("radio");
+const precioMetro = document.getElementById("valorMetro");
+const precioTotalRectangulo = document.getElementById("valorRectangulo");
+const precioTotalCirculo = document.getElementById("valorCirculo");
 
+const load = document.getElementById("loader");
 const rutaBarrios = "/js/barrios.json";
+
 load.style.display="none";
 
 function mostrarLista(lista){
     borrarTabla();
+    cuerpoTabla.innerHTML = "";
     load.style.display="";
-    lista.forEach(element => {
+    lista.forEach(e => {
         setTimeout( () => {
             load.style.display="none";
-            cuerpoTabla.innerHTML += `<tr> <td> ${element.nombre} </td><td> ${element.zona} </td><td> ${element.comuna} </td><td> ${element.precio} </td> </tr>`;
-        }, 1000)
+            cuerpoTabla.innerHTML += `<tr> <td> ${e.nombre} </td><td> ${e.zona} </td><td> ${e.comuna} </td><td> ${e.precio} </td> </tr>`;
+        }, 500)
     });
-        /* for(let i=0; i<lista.length; i++){
-            setTimeout( () => {
-                cuerpoTabla.innerHTML += `<tr> <td> ${lista[i].nombre} </td><td> ${lista[i].zona} </td><td> ${lista[i].comuna} </td><td> ${lista[i].precio} </td> </tr>`;
-            }, i*300)
-        } */
     return lista;
 }
 
@@ -26,37 +32,25 @@ function borrarTabla(){
     cuerpoTabla.innerHTML = "";
 }
 
-function filtroComuna(comuna){
-    let resultado;
+function ordenAlfabeticamente(tipoOrden){
     fetch(rutaBarrios)
         .then( (res) => res.json() )
         .then( (lista) => {
-            resultado = lista.filter(comunas => comunas.comuna === comuna);
-            guardarTablaLocalStorage(resultado);
-            mostrarLista(resultado);
-        })
-    return resultado;
-}
-
-function ordenAlfabeticamente(tipoOrden){
-    fetch(rutaBarrios)
-    .then( (res) => res.json() )
-    .then( (lista) => {
-        if(tipoOrden === "todo az")
-        {
-            lista.sort( (a,b)=>{
-                if(a.nombre < b.nombre) return  -1;
-                if(a.nombre > b.nombre) return  1;
-                return 0;
-            } );
-        }
-        else{
-            lista.sort( (a,b)=>{
-                if(b.nombre < a.nombre) return  -1;
-                if(b.nombre > a.nombre) return  1;
-                return 0;
-            } );
-        }
+            if(tipoOrden === "todo az")
+            {
+                lista.sort( (a,b)=>{
+                    if(a.nombre < b.nombre) return  -1;
+                    if(a.nombre > b.nombre) return  1;
+                    return 0;
+                } );
+            }
+            else{
+                lista.sort( (a,b)=>{
+                    if(b.nombre < a.nombre) return  -1;
+                    if(b.nombre > a.nombre) return  1;
+                    return 0;
+                } );
+            }
         guardarTablaLocalStorage(lista);
         mostrarLista(lista);
     })
@@ -71,10 +65,21 @@ function ordenPrecio(tipoOrden){
             guardarTablaLocalStorage(lista);
             mostrarLista(lista);
         })
-    return lista;
 }
 
-function ordenZona(tipoOrden){
+function filtroComuna(comuna){
+    let resultado;
+    fetch(rutaBarrios)
+        .then( (res) => res.json() )
+        .then( (lista) => {
+            resultado = lista.filter(comunas => comunas.comuna === comuna);
+            guardarTablaLocalStorage(resultado);
+            mostrarLista(resultado);
+        })
+    return resultado;
+}
+
+function filtroZona(tipoOrden){
     let resultado;
     fetch(rutaBarrios)
         .then( (res) => res.json() )
@@ -90,93 +95,53 @@ function ordenZona(tipoOrden){
     return resultado;
 }
 
-function calcularSuperficie(medida1, medida2) {
-    let areaRectangulo = medida1*medida2;
-    
-    if( areaRectangulo <= 0 || areaRectangulo == null || isNaN(areaRectangulo)){
-        document.getElementById("mensajeError").innerHTML = "No se pudo calcular porque falta alguno de los valores.";
-        return 0;
-    }
-    else {
-        document.getElementById("mensajeError").innerHTML = "";
-        return areaRectangulo;
-    }
-}
-
-function calcularSuperficieCirculo(medida1, medida2) {
-    let radio;
-    let areaCirculo;
-
-    if(medida1 != medida2){
-        radio = ( (medida1 /2) * (medida2 /2) ); // Radio de un area ovalada
-        areaCirculo = Math.PI * radio;
-    }
-    else{
-        radio = medida1 /2; // Radio de un area circular
-        areaCirculo = Math.PI * (radio * radio);
-    }
-    document.getElementById("radio").value = radio;
-
-    if( areaCirculo <= 0 || areaCirculo == null || isNaN(areaCirculo) ){
-        document.getElementById("mensajeError").innerHTML = "No se pudo calcular porque falta alguno de los valores.";
-        return 0;
-    }
-    else{
-        document.getElementById("mensajeError").innerHTML = "";
-        return areaCirculo; 
-    }
-}
-
 function mostrarMts2(){
-    let medida1 = parseFloat (document.getElementById("largo").value);
-    let medida2 = parseFloat (document.getElementById("ancho").value);
+    let medida1 = parseFloat(mtsLargo.value);
+    let medida2 = parseFloat(mtsAncho.value);
+
+    let radio = medida1 != medida2 ? (medida1 /2) * (medida2 /2) : medida1 /2;
+    let areaCirculo = Math.PI * radio;
+
+    let areaRectangulo = medida1*medida2;
+    areaRectangulo <= 0 || areaRectangulo == null || isNaN(areaRectangulo) ? mensajeDeError.innerHTML = msjError : mensajeDeError.innerHTML = "";
     
-    document.getElementById("metrosRectangulo").value = calcularSuperficie(medida1, medida2).toFixed(2);
-    document.getElementById("metrosCirculo").value = calcularSuperficieCirculo(medida1, medida2).toFixed(2);
-}
-
-function calcularValorTotal(num1, num2) {
-    let resultado = num1*num2;
-
-    if( resultado < 0 || resultado == null || isNaN(resultado)){
-        document.getElementById("mensajeError").innerHTML = "No se pudo calcular porque falta alguno de los valores.";
-        return 0;
-    }
-    else{
-        document.getElementById("mensajeError").innerHTML = "";
-        return resultado.toFixed(2);
-    } 
+    mtsRadio.value = radio.toFixed(2);
+    mtsRectangulo.value = areaRectangulo.toFixed(2);
+    mtsCirculo.value = areaCirculo.toFixed(2);
 }
 
 function mostrarValorTotal(){
-    let metroCirculo = parseFloat (document.getElementById("metrosCirculo").value);
-    let metroRectangulo = parseFloat (document.getElementById("metrosRectangulo").value);
-    let precio = parseFloat (document.getElementById("valorMetro").value);
+    let circulo = parseFloat(mtsCirculo.value) * parseFloat(precioMetro.value);
+    let rectangulo = parseFloat(mtsRectangulo.value) * parseFloat(precioMetro.value);
+
+    circulo < 0 || circulo == null || isNaN(circulo) ? mensajeDeError.innerHTML = msjError: mensajeDeError.innerHTML = "";
+    rectangulo < 0 || rectangulo == null || isNaN(rectangulo) ? mensajeDeError.innerHTML = msjError: mensajeDeError.innerHTML = "";
     
-    document.getElementById("valorRectangulo").value = calcularValorTotal(metroRectangulo, precio);
-    document.getElementById("valorCirculo").value = calcularValorTotal(metroCirculo, precio);
+    precioTotalCirculo.value = circulo.toFixed(2);
+    precioTotalRectangulo.value = rectangulo.toFixed(2);
 }
 
 function precioBarrio(){
-    listaAux = listaBarrios;
-
-    listaAux.sort( (a,b)=>{
-        if(a.nombre < b.nombre) return  -1;
-        if(a.nombre > b.nombre) return  1;
-        return 0;
-    } );
-    let seleccion = document.getElementById("barrio");
-    valorMetro = listaAux[seleccion.selectedIndex].precio;
-
-    document.getElementById("valorMetro").value = valorMetro;
+    fetch(rutaBarrios)
+    .then( (res) => res.json() )
+    .then( (lista) => {
+        lista.sort( (a,b)=>{
+            if(a.nombre < b.nombre) return  -1;
+            if(a.nombre > b.nombre) return  1;
+            return 0;
+        } );
+        let seleccion = document.getElementById("barrio");
+        valorMetro = lista[seleccion.selectedIndex].precio;
+        document.getElementById("valorMetro").value = valorMetro;
+    })
 }
 
 function borrar(){
-    document.getElementById("largo").value = "";
-    document.getElementById("ancho").value = "";
-    document.getElementById("radio").value = "";
-    document.getElementById("metrosRectangulo").value = "";
-    document.getElementById("metrosCirculo").value = "";
+    mtsLargo.value = "";
+    mtsAncho.value = "";
+    mtsRadio.value = "";
+    mtsRectangulo.value = "";
+    mtsCirculo.value = "";
     document.getElementById("valorMetro").value = "";
     document.getElementById("valorRectangulo").value = "";
     document.getElementById("valorCirculo").value = "";

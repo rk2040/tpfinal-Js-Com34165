@@ -21,11 +21,11 @@ for(let i=1; i<=15; i++){
 //btnBusqueda.innerHTML += `<button id="" type="button" onclick="click_button(this.id)" disabled></button>`; // Boton de relleno
 //----------------------------------
 // Botones Filtro por Zona
-btnBusqueda.innerHTML += `<button class="ordenZona" id="Centro" type="button" onclick="ordenZona(this.id)">Zona Centro</button>`;
-btnBusqueda.innerHTML += `<button class="ordenZona" id="Este" type="button" onclick="ordenZona(this.id)">Zona Este</button>`;
-btnBusqueda.innerHTML += `<button class="ordenZona" id="Oeste" type="button" onclick="ordenZona(this.id)">Zona Oeste</button>`;
-btnBusqueda.innerHTML += `<button class="ordenZona" id="Norte" type="button" onclick="ordenZona(this.id)">Zona Norte</button>`;
-btnBusqueda.innerHTML += `<button class="ordenZona" id="Sur" type="button" onclick="ordenZona(this.id)">Zona Sur</button>`;
+btnBusqueda.innerHTML += `<button class="ordenZona" id="Centro" type="button" onclick="filtroZona(this.id)">Zona Centro</button>`;
+btnBusqueda.innerHTML += `<button class="ordenZona" id="Este" type="button" onclick="filtroZona(this.id)">Zona Este</button>`;
+btnBusqueda.innerHTML += `<button class="ordenZona" id="Oeste" type="button" onclick="filtroZona(this.id)">Zona Oeste</button>`;
+btnBusqueda.innerHTML += `<button class="ordenZona" id="Norte" type="button" onclick="filtroZona(this.id)">Zona Norte</button>`;
+btnBusqueda.innerHTML += `<button class="ordenZona" id="Sur" type="button" onclick="filtroZona(this.id)">Zona Sur</button>`;
 //----------------------------------
 // Botones Operaciones
 btnOperaciones.innerHTML += `<button class="boton calcular" type="button" id="mts2" onclick="mostrarMts2(this.id)">Calcular Mts2</button>`;

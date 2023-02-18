@@ -42,12 +42,6 @@
         "precio" : 1861
     },
     {
-        "nombre" : "Caballito",
-        "zona" : "Centro",
-        "comuna" : "Comuna 6",
-        "precio" : 1861
-    },
-    {
         "nombre" : "Chacarita",
         "zona" : "Centro",
         "comuna" : "Comuna 15",
