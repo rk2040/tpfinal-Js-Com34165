@@ -3,6 +3,9 @@
 @import "fuentes";
 @import "iframes";
 @import "gridAreas";
+@import "gridAreasInmuebles";
+@import "inmuebles";
+@import "favoritos";
 
 body{
     background-color: azure;
@@ -21,6 +24,21 @@ header{
     flex-direction: row;
     justify-content: baseline;
 }
+.navbar ul li a{
+    font-style: none;
+    font-size: large;
+    font-weight: 500;
+    color: $color-base;
+}
+
+h1{
+    color: $color-base;
+    font-size: 50px;
+}
+h2{
+    color: $color-base;
+    font-size: 30px;
+}
 
 .dark-mode{
     background-color: black;
@@ -30,8 +48,9 @@ header{
         color: azure;
     }
     h2{
-        color: azure;
+        color: rgb(0, 192, 192);
     }
+
     button{
         color: azure;
     }
@@ -47,6 +66,9 @@ header{
         iframe{
             background-color: rgb(azure, 0.2);
         }
+    }
+    .navbar ul li a{
+        color: azure;
     }
 }
 
@@ -92,6 +114,9 @@ button:hover{
 .calcular{
     background-color: rgb($color-btn-calculo, 0.5);
 }
+.favorito{
+    background-color: rgb($color-detalles, 0.8);
+}
 .borrar{
     background-color: rgb($color-btn-reset, 0.5);
 }
@@ -103,15 +128,6 @@ select{
     font-size: large;
 }
 
-h1{
-    color: $color-base;
-    font-size: 50px;
-}
-h2{
-    color: $color-base;
-    font-size: 30px;
-}
-
 header{
     @extend .box-color;
     display: grid;
@@ -119,6 +135,9 @@ header{
     
     border-bottom: solid 30px $color-detalles;
     border-radius: 0;
+
+    position: absolute;
+    top: 0;
 }
 footer{
     @extend .box-color;
@@ -134,7 +153,7 @@ footer{
     align-content: end;
 
     position: absolute;
-    bottom: 10;
+    bottom: 0;
 }
 
 p{
@@ -216,11 +235,6 @@ p{
 }
 
 .superficie-medidas {
-
-    /*  display:flex;
-    flex-direction: column;
-    align-items: center;
-     */
     .input-form{
         gap: 10px;
         margin-top: 10px;
@@ -229,11 +243,6 @@ p{
 }
 
 .superficie-calculos{
-
-    /* display:flex;
-    flex-direction: column;
-    align-items: center; */
-
     .input-form{
         gap: 10px;
         margin-top: 10px;

@@ -1,44 +1,16 @@
-/* function activarDarkMode(activado){
-    body.classList.add("dark-mode");
-    activado? localStorage.setItem("dark-mode" , "activado"): localStorage.setItem("dark-mode", "desactivado"); // key  valor
-}
-activarDarkMode(darkMode == "activado");
- */
-/* function activarDarkMode(activado){
-    activado ? body.className =+ 'dark-mode': (body.className = body.className.replace("dark-mode",''));
-    activado? localStorage.setItem("dark-mode" , "activado"): localStorage.setItem("dark-mode", "desactivado"); // key  valor
-}
-activarDarkMode(darkMode == "activado"); */
 
-// MODO OSCURO------------------------------------------------------------------------
+// MODO OSCURO
 const btnDarkMode = document.querySelector("#dark");
 const body = document.body;
-
 let darkMode = localStorage.getItem("dark-mode");
-
-/*function activarDarkMode(boton){
-    boton === "activado"  ? localStorage.setItem("dark-mode" , "activado") : localStorage.setItem("dark-mode", "desactivado");
-    boton === "activado" ? body.classList.add("dark-mode") : body.classList.remove("dark-mode");
-    //boton == true ? body.className += 'dark-mode': (body.className = body.className.replace("dark-mode",''));
-} 
-if(darkMode === "activado") activarDarkMode(darkMode.value==="activado");
-else activarDarkMode(darkMode); 
-
-btnDarkMode.addEventListener("click", () => {
-    darkMode = localStorage.getItem("dark-mode");
-    activarDarkMode(darkMode);
-}) */
-
-
 
 function activarDarkMode(){
     body.classList.add("dark-mode");
-    localStorage.setItem("dark-mode" , "activado"); // key  valor
+    localStorage.setItem("dark-mode" , "activado");
 }
-
 function desactivarDarkMode(){
     body.classList.remove("dark-mode");
-    localStorage.setItem("dark-mode", "desactivado"); // key  valor
+    localStorage.setItem("dark-mode", "desactivado");
 }
 
 if(darkMode === "activado") activarDarkMode();
@@ -46,44 +18,61 @@ else desactivarDarkMode();
 
 btnDarkMode.addEventListener("click", () => {
     darkMode = localStorage.getItem("dark-mode");
-    if(darkMode === "activado") desactivarDarkMode();
-    else activarDarkMode();
+    (darkMode === "activado") ? desactivarDarkMode() : activarDarkMode();
 })
-// GUARDAR TABLA EN LS------------------------------------------------------------------------
+
+//Index.html
 function guardarTablaLocalStorage(lista){
     localStorage.setItem("barrios", JSON.stringify(lista));
 }
-// ELIMINAR TABLA DE LS------------------------------------------------------------------------
+// ELIMINAR TABLA DE LS
 function eliminarTablaLocalStorage(){
     localStorage.removeItem("barrios");
     borrarTabla();
 }
-// ELIMINAR TODO LS------------------------------------------------------------------------
+// ELIMINAR TODO LS
 function borrarTodoLocalStorage(){
     localStorage.clear();
     location.reload();
 }
-// ------------------------------------------------------------------------
+
 function obtenerLocalStorage(){
     let lista = JSON.parse(localStorage.getItem("barrios"));
     mostrarLista(lista);
     return lista;
 }
-// Recupero tabla del LS------------------------------------------------------------------------
+// Recupero tabla del LS
 if(localStorage.getItem("barrios")){
     let lista = JSON.parse(localStorage.getItem("barrios"));
     mostrarLista(lista);
 }
-// ------------------------------------------------------------------------
+
 function ingresarNombreLS(){
     let nombre = document.getElementById("usuario").value;
     if(nombre != "") localStorage.setItem("nombreUs", JSON.stringify(nombre));
     document.getElementById("usuario").value = "";
     location.reload();
 }
-// ------------------------------------------------------------------------
+
 if(localStorage.getItem("nombreUs")){
     let nombre = JSON.parse(localStorage.getItem("nombreUs"));
     if(nombre != "") document.getElementById("saludo").innerHTML = `Bienvenido ${nombre}, gracias por visitarnos`;
-    /* else document.getElementById("saludo").innerHTML = ""; */
 }
+
+// Recupero tabla del LS
+if(localStorage.getItem("favoritos")){
+    let lista = JSON.parse(localStorage.getItem("favoritos"));
+    mostrarInmueblesFavoritos(lista);
+}
+
+// Inmuebles.html //Favoritos.html
+function guardarFavoritosLocalStorage(lista){
+    localStorage.setItem("favoritos", JSON.stringify(lista));
+}
+
+function obtenerFavoritosLocalStorage(){
+    let lista = JSON.parse(localStorage.getItem("favoritos"));
+    mostrarInmueblesFavoritos(lista);
+    return lista;
+}
+

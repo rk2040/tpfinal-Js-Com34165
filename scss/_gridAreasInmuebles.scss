@@ -1,0 +1,46 @@
+
+.container-opciones{
+    grid-area: opciones;
+}
+.container-inmuebles{
+    grid-area: inmuebles;
+}
+
+.container-grid-inmueble{
+    height: auto;
+    margin-top: 200px;
+    margin-bottom: 250px;
+    row-gap: 20px;
+    column-gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 0.5fr, 4fr;
+    flex-direction: column;
+    justify-content: center;
+
+    grid-template-areas:
+    "ingreso    ingreso      ingreso      ingreso"
+    "opciones   inmuebles    inmuebles    inmuebles"
+    ;
+}
+
+.container-favoritos{
+    grid-area: favoritos;
+}
+.container-grid-favorito{
+    height: auto;
+    margin-top: 200px;
+    margin-bottom: 250px;
+    row-gap: 20px;
+    column-gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 0.5fr, 4fr;
+    flex-direction: column;
+    justify-content: center;
+
+    grid-template-areas:
+    "ingreso    ingreso      ingreso      ingreso"
+    "opciones   favoritos    favoritos    favoritos"
+    ;
+}

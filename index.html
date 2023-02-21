@@ -11,181 +11,198 @@
     <link rel="shortcut icon" href="./assets/logo-inmobiliaria.png" type="image/x-icon">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- cdn sweetalert -->
     <script src="js/script.js" defer></script>
-    <script src="js/scriptObj.js" defer></script>
     <script src="js/scriptBotones.js" defer></script>
     <script src="js/scriptStorage.js" defer></script>
     <!-- <script src="js/alertSesion.js" defer></script> -->
-    <title>Tercer PreEntrega</title>
+    <title>Cotiza tu casa</title>
 </head>
 
-<body class="container-grid ">
+<body>
     <header class="container-header">
-        <h1 class="tituloH1">Tercer entrega de JS</h1>
-        <div id="dark" class="botonDark form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+        <h1 class="tituloH1">Busca Prop</h1>
+        <div class="botonDark form-check form-switch">
+            <input id="dark" class=" form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
             <label id class="form-check-label" for="flexSwitchCheckDefault" >Dark-Side</label>
         </div>
+        <nav class="navbar navbar-expand-lg bg-transparent">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./pages/inmuebles.html">Inmuebles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./pages/favoritos.html">Favoritos</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </header>
-    
-    <div class="ingreso">
-        <div id="saludo" class="saludoUs">
-            <!-- Saludo JS -->
-        </div>
-        <div id="login" class="login-us ingreso">
-            <!-- Botones Login desde JS -->
-        </div>
-    </div>
-    
-    <div class="mapa">
-        <h2 class="titulo">Mapa de precio por metro cuadrado por barrio.</h2>
-        <iframe class="mapa-iframe" style="width:640px;height:720px;border-radius:10px;box-shadow:2px 4px 4px rgb(0 0 0 / 25%);display:flex;justify-content:center;border:1px solid #bcbcbc" src="https://datawrapper.dwcdn.net/m0rp5/7/" frameborder="0"></iframe>
-    </div>
-
-    <div id="lista-filtro" class="filtro">
-        <h2 class="titulo">Elija que barrios quiere ver segun criterio.</h2>
-        <div id="btnSuperficie" class="superficie">
-            <!-- Botones Filtro/busqueda desde JS -->
-        </div>
-        <div class="contenedorTabla">
-            <table class="cuadroTabla table table-hover" id="tabla">
-                <thead>
-                    <tr>
-                        <th class="columna-barrio">Barrio</th>
-                        <th class="columna-zona">Zona</th>
-                        <th class="columna-comuna">Comuna</th>
-                        <th class="columna-valor">Valor m2 (USD)</th>
-                    </tr>
-                    <tbody id="cuerpoTabla">
-                    </tbody>
-                </thead>
-            </table>
-            <div id="loader" class="spinner-border text-primary" role="status" style="width: 6rem; height: 6rem;">
-                <span class="visually-hidden">Loading...</span>
+    <main class="container-grid-index">
+        <div class="ingreso">
+            <div id="saludo" class="saludoUs">
+                <!-- Saludo JS -->
+            </div>
+            <div id="login" class="login-us ingreso">
+                <!-- Botones Login desde JS -->
             </div>
         </div>
         
-        <div id="btnTabla" class="superficie">
-            <!-- Botones de Tabla desde JS -->
+        <div class="mapa">
+            <h2 class="titulo">Mapa de precio por metro cuadrado por barrio.</h2>
+            <iframe class="mapa-iframe" style="width:640px;height:720px;border-radius:10px;box-shadow:2px 4px 4px rgb(0 0 0 / 25%);display:flex;justify-content:center;border:1px solid #bcbcbc" src="https://datawrapper.dwcdn.net/m0rp5/7/" frameborder="0"></iframe>
         </div>
-    </div>
-        
-    <div class="form medidas">
-        <h2 class="titulo">Ingrese medidas y valores a calcular.</h2>
-        <div class="superficie-medidas">
-            <div class="lblMedidas">
-                <label>Metros de largo</label>
-            </div>
-            <div class="input-form">
-                <input type="number" id="largo" name="largo" required placeholder="Ingrese largo">
-            </div>
-            <div class="lblMedidas">
-                <label>Metros de ancho</label>
-            </div>
-            <div class="input-form">
-                <input type="number" id="ancho" name="ancho" required placeholder="Ingrese ancho">
-            </div>
-            <div class="lblMedidas">
-                <label>Metros de radio</label>
-            </div>
-            <div class="input-form">
-                <input type="number" id="radio" name="radio" required placeholder="Metros radio" readonly>
-            </div>
-            <div class="lblMedidas">
-                <label>Valor del Mt2 us$</label>
-            </div>
-            <div class="input-form">
-                <input type="number" id="valorMetro" name="valorMetro" required placeholder="Valor del mt2 en us$" readonly> 
-            </div>
-            <div class="lblMedidas">
-                <label>Elija un barrio para <br>ver el precio por mt2</label>
-            </div>
-            <form name="fomr1" class="input-form">
-                <select  class="selMedidas" id="barrio" name="barrio" onclick="precioBarrio()">
-                    <option value="1">Agronomia</option>
-                    <option value="2">Almagro</option>
-                    <option value="3">Balvanera</option>
-                    <option value="4">Barracas</option>
-                    <option value="5">Belgrano</option>
-                    <option value="6">Boedo</option>
-                    <option value="7">Caballito</option>
-                    <option value="8">Chacarita</option>
-                    <option value="9">Coghlan</option>
-                    <option value="10">Colegiales</option>
-                    <option value="11">Constitucion</option>
-                    <option value="12">Flores</option>
-                    <option value="13">Floresta</option>
-                    <option value="14">La Boca</option>
-                    <option value="15">La Paternal</option>
-                    <option value="16">Liniers</option>
-                    <option value="17">Mataderos</option>
-                    <option value="18">Monserrat</option>
-                    <option value="19">Monte Castro</option>
-                    <option value="20">Nueva Pompeya</option>
-                    <option value="21">Nuñez</option>
-                    <option value="22">Palermo</option>
-                    <option value="23">Parque Avellaneda</option>
-                    <option value="24">Parque Chacabuco</option>
-                    <option value="25">Parque Chas</option>
-                    <option value="26">Parque Patricios</option>
-                    <option value="27">Puerto Madero</option>
-                    <option value="28">Recoleta</option>
-                    <option value="29">Retiro</option>
-                    <option value="30">Saavedra</option>
-                    <option value="31">San Cristobal</option>
-                    <option value="32">San Nicolas</option>
-                    <option value="33">San Telmo</option>
-                    <option value="34">Versalles</option>
-                    <option value="35">Villa Crespo</option>
-                    <option value="36">Villa del Parque</option>
-                    <option value="37">Villa Devoto</option>
-                    <option value="38">Villa General Mitre</option>
-                    <option value="39">Villa Lugano</option>
-                    <option value="40">Villa Luro</option>
-                    <option value="41">Villa Ortuzar</option>
-                    <option value="42">Villa Pueyrredon</option>
-                    <option value="43">Villa Real</option>
-                    <option value="44">Villa Santa Rita</option>
-                    <option value="45">Villa Soldati</option>
-                    <option value="46">Villa Urquiza</option>
-                </select>
-            </form>
-        </div>
-    </div>
 
-    <div class="form calculos">
-        <h2 class="titulo">Seleccione que operaciones quiere ver.</h2>
-        <div class="superficie-calculos">
-            <div>
-                <label>Mts2 Circulo/Ovalo</label>
+        <div id="lista-filtro" class="filtro">
+            <h2 class="titulo">Elija que barrios quiere ver segun criterio.</h2>
+            <div id="btnSuperficie" class="superficie">
+                <!-- Botones Filtro/busqueda desde JS -->
             </div>
-            <div class="input-form">
-                <input type="text" id="metrosCirculo" name="metrosCirculo" required placeholder="Metros cuadrados" readonly>
+            <div class="contenedorTabla">
+                <table class="cuadroTabla table table-hover" id="tabla">
+                    <thead>
+                        <tr>
+                            <th class="columna-barrio">Barrio</th>
+                            <th class="columna-zona">Zona</th>
+                            <th class="columna-comuna">Comuna</th>
+                            <th class="columna-valor">Valor m2 (USD)</th>
+                        </tr>
+                        <tbody id="cuerpoTabla">
+                        </tbody>
+                    </thead>
+                </table>
+                <div id="loader" class="spinner-border text-primary" role="status" style="width: 6rem; height: 6rem;">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
             </div>
-            <div>
-                <label>Valor total Circulo us$</label>
+            
+            <div id="btnTabla" class="superficie">
+                <!-- Botones de Tabla desde JS -->
             </div>
-            <div class="input-form">
-                <input type="Text" id="valorCirculo" name="valorTotalCirculo" required placeholder="Valor Total" readonly>
-            </div>
-            <div>
-                <label>Mts2 Rectangulo</label>
-            </div>
-            <div class="input-form">
-                <input type="text" id="metrosRectangulo" name="metrosRectangulo" required placeholder="Metros cuadrados" >
-            </div>
-            <div>
-                <label>Valor total en us$</label>
-            </div>
-            <div class="input-form">
-                <input type="Text" id="valorRectangulo" name="valorTotal" required placeholder="Valor Total" readonly>
-            </div>
-            <div class="msjError" id="mensajeError"></div>
         </div>
-        <div id="btnCalculos"  class="boton"><!-- Botones Calculos desde JS --></div>
-    </div>
+            
+        <div class="form medidas">
+            <h2 class="titulo">Ingrese medidas y valores a calcular.</h2>
+            <div class="superficie-medidas">
+                <div class="lblMedidas">
+                    <label>Metros de largo</label>
+                </div>
+                <div class="input-form">
+                    <input type="number" id="largo" name="largo" required placeholder="Ingrese largo">
+                </div>
+                <div class="lblMedidas">
+                    <label>Metros de ancho</label>
+                </div>
+                <div class="input-form">
+                    <input type="number" id="ancho" name="ancho" required placeholder="Ingrese ancho">
+                </div>
+                <div class="lblMedidas">
+                    <label>Metros de radio</label>
+                </div>
+                <div class="input-form">
+                    <input type="number" id="radio" name="radio" required placeholder="Metros radio" readonly>
+                </div>
+                <div class="lblMedidas">
+                    <label>Valor del Mt2 us$</label>
+                </div>
+                <div class="input-form">
+                    <input type="number" id="valorMetro" name="valorMetro" required placeholder="Valor del mt2 en us$" readonly> 
+                </div>
+                <div class="lblMedidas">
+                    <label>Elija un barrio para <br>ver el precio por mt2</label>
+                </div>
+                <form name="fomr1" class="input-form">
+                    <select  class="selMedidas" id="barrio" name="barrio" onclick="precioBarrio()">
+                        <option value="1">Agronomia</option>
+                        <option value="2">Almagro</option>
+                        <option value="3">Balvanera</option>
+                        <option value="4">Barracas</option>
+                        <option value="5">Belgrano</option>
+                        <option value="6">Boedo</option>
+                        <option value="7">Caballito</option>
+                        <option value="8">Chacarita</option>
+                        <option value="9">Coghlan</option>
+                        <option value="10">Colegiales</option>
+                        <option value="11">Constitucion</option>
+                        <option value="12">Flores</option>
+                        <option value="13">Floresta</option>
+                        <option value="14">La Boca</option>
+                        <option value="15">La Paternal</option>
+                        <option value="16">Liniers</option>
+                        <option value="17">Mataderos</option>
+                        <option value="18">Monserrat</option>
+                        <option value="19">Monte Castro</option>
+                        <option value="20">Nueva Pompeya</option>
+                        <option value="21">Nuñez</option>
+                        <option value="22">Palermo</option>
+                        <option value="23">Parque Avellaneda</option>
+                        <option value="24">Parque Chacabuco</option>
+                        <option value="25">Parque Chas</option>
+                        <option value="26">Parque Patricios</option>
+                        <option value="27">Puerto Madero</option>
+                        <option value="28">Recoleta</option>
+                        <option value="29">Retiro</option>
+                        <option value="30">Saavedra</option>
+                        <option value="31">San Cristobal</option>
+                        <option value="32">San Nicolas</option>
+                        <option value="33">San Telmo</option>
+                        <option value="34">Versalles</option>
+                        <option value="35">Villa Crespo</option>
+                        <option value="36">Villa del Parque</option>
+                        <option value="37">Villa Devoto</option>
+                        <option value="38">Villa General Mitre</option>
+                        <option value="39">Villa Lugano</option>
+                        <option value="40">Villa Luro</option>
+                        <option value="41">Villa Ortuzar</option>
+                        <option value="42">Villa Pueyrredon</option>
+                        <option value="43">Villa Real</option>
+                        <option value="44">Villa Santa Rita</option>
+                        <option value="45">Villa Soldati</option>
+                        <option value="46">Villa Urquiza</option>
+                    </select>
+                </form>
+            </div>
+        </div>
 
+        <div class="form calculos">
+            <h2 class="titulo">Seleccione que operaciones quiere ver.</h2>
+            <div class="superficie-calculos">
+                <div>
+                    <label>Mts2 Circulo/Ovalo</label>
+                </div>
+                <div class="input-form">
+                    <input type="text" id="metrosCirculo" name="metrosCirculo" required placeholder="Metros cuadrados" readonly>
+                </div>
+                <div>
+                    <label>Valor total Circulo us$</label>
+                </div>
+                <div class="input-form">
+                    <input type="Text" id="valorCirculo" name="valorTotalCirculo" required placeholder="Valor Total" readonly>
+                </div>
+                <div>
+                    <label>Mts2 Rectangulo</label>
+                </div>
+                <div class="input-form">
+                    <input type="text" id="metrosRectangulo" name="metrosRectangulo" required placeholder="Metros cuadrados" >
+                </div>
+                <div>
+                    <label>Valor total en us$</label>
+                </div>
+                <div class="input-form">
+                    <input type="Text" id="valorRectangulo" name="valorTotal" required placeholder="Valor Total" readonly>
+                </div>
+                <div class="msjError" id="mensajeError"></div>
+            </div>
+            <div id="btnCalculos"  class="boton"><!-- Botones Calculos desde JS --></div>
+        </div>
+    </main>
     <footer class="footer">
-        <p class="parrafo">PreEntrega 3 JavaScript</p>
+        <p class="parrafo">Proyecto JavaScript</p>
         <p class="parrafo">Comicion N 34165</p>
         <p class="parrafo">Pardo Roberto</p>
     </footer>

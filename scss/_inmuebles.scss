@@ -1,0 +1,58 @@
+
+.container-opciones{
+    @extend .box-color;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    h2{
+        margin-bottom: 2rem;
+    }
+}
+.botones-opciones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 2em;
+}
+.container-inmuebles{
+    @extend .box-color;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+    img{
+        justify-content: center;
+        width: 200px;
+    }
+    h2{
+        margin-bottom: 2rem;
+    }
+}
+.inmueble-imagen{
+    max-width: 100%;
+    border-radius: 1rem;
+}
+.inmueble-producto{
+    @extend .box-color;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 1rem;
+    p{
+        font-size: medium;
+    }
+    .dataInmueble {
+        font-size: small;
+    }
+}
+.inmueble-detalle{
+    padding: 1rem;
+}

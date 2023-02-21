@@ -74,24 +74,24 @@ footer{
     }
 }
 
-.container-grid{
+.container-grid-index{
     height: auto;
     margin: auto;
+    margin-top: 200px;
+    margin-bottom: 250px;
     row-gap: 20px;
     column-gap: 10px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 0.2fr 0.02fr 0.8fr 0.5fr 0.5fr 0.1fr;
+    grid-template-rows: 0.02fr 0.8fr 0.5fr 0.5fr;
     flex-direction: column;
     justify-content: center;
 
     grid-template-areas:
-    "head   head    head     head"
     "ingreso ingreso ingreso ingreso"
     "mapa   mapa    mapa     mapa"
     "filtro filtro  medidas  medidas"
     "filtro filtro  calculos calculos"
-    "footer footer  footer   footer"
     ;
 }
 

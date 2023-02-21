@@ -13,12 +13,12 @@ const precioTotalCirculo = document.getElementById("valorCirculo");
 const load = document.getElementById("loader");
 const rutaBarrios = "./js/barrios.json";
 
-load.style.display="none";
+load.style.display = "none";
 
 function mostrarLista(lista){
     borrarTabla();
     cuerpoTabla.innerHTML = "";
-    load.style.display="";
+    load.style.display = "";
     lista.forEach(e => {
         setTimeout( () => {
             load.style.display="none";
@@ -53,8 +53,8 @@ function ordenAlfabeticamente(tipoOrden){
             }
         guardarTablaLocalStorage(lista);
         mostrarLista(lista);
-    })
-    return lista;
+        return lista;
+        })
 }
 
 function ordenPrecio(tipoOrden){
@@ -64,6 +64,7 @@ function ordenPrecio(tipoOrden){
             tipoOrden === "mayor precio" ? lista.sort((a,b) => b.precio - a.precio) : lista.sort((a,b) => a.precio - b.precio)
             guardarTablaLocalStorage(lista);
             mostrarLista(lista);
+            return lista;
         })
 }
 
@@ -84,11 +85,7 @@ function filtroZona(tipoOrden){
     fetch(rutaBarrios)
         .then( (res) => res.json() )
         .then( (lista) => {
-            if(tipoOrden === "Este") resultado = lista.filter((barrio) => barrio.zona.includes(tipoOrden));
-            else if(tipoOrden === "Oeste") resultado = lista.filter((barrio) => barrio.zona.includes(tipoOrden));
-            else if(tipoOrden === "Norte") resultado = lista.filter((barrio) => barrio.zona.includes(tipoOrden));
-            else resultado = lista.filter((barrio) => barrio.zona.includes(tipoOrden)); //Sur
-            
+            resultado = lista.filter((barrio) => barrio.zona.includes(tipoOrden));
             mostrarLista(resultado);
             guardarTablaLocalStorage(resultado);
         })
@@ -123,17 +120,17 @@ function mostrarValorTotal(){
 
 function precioBarrio(){
     fetch(rutaBarrios)
-    .then( (res) => res.json() )
-    .then( (lista) => {
-        lista.sort( (a,b)=>{
-            if(a.nombre < b.nombre) return  -1;
-            if(a.nombre > b.nombre) return  1;
-            return 0;
-        } );
-        let seleccion = document.getElementById("barrio");
-        valorMetro = lista[seleccion.selectedIndex].precio;
-        document.getElementById("valorMetro").value = valorMetro;
-    })
+        .then( (res) => res.json() )
+        .then( (lista) => {
+            lista.sort( (a,b)=>{
+                if(a.nombre < b.nombre) return  -1;
+                if(a.nombre > b.nombre) return  1;
+                return 0;
+            } );
+            let seleccion = document.getElementById("barrio");
+            valorMetro = lista[seleccion.selectedIndex].precio;
+            document.getElementById("valorMetro").value = valorMetro;
+        })
 }
 
 function borrar(){
@@ -142,29 +139,8 @@ function borrar(){
     mtsRadio.value = "";
     mtsRectangulo.value = "";
     mtsCirculo.value = "";
-    document.getElementById("valorMetro").value = "";
-    document.getElementById("valorRectangulo").value = "";
-    document.getElementById("valorCirculo").value = "";
-    document.getElementById("mensajeError").innerHTML = "";
+    precioMetro.value = "";
+    precioTotalRectangulo.value = "";
+    precioTotalCirculo.value = "";
+    mensajeDeError.innerHTML = "";
 }
-
-// Solo probando algo de la ultima clase------------------------------------------------------------------------
-/* const btn = document.getElementById("dark")
-
-btn.addEventListener('click', () => {
-    Swal.fire({
-        title: 'Do you want to save the changes?',
-        showDenyButton: true,
-        showCancelButton: true,
-        confirmButtonText: 'Save',
-        denyButtonText: `Don't save`,
-
-        }).then((result) => {
-        // Read more about isConfirmed, isDenied below 
-        if (result.isConfirmed) {
-            Swal.fire('Saved!', '', 'success')
-        } else if (result.isDenied) {
-            Swal.fire('Changes are not saved', '', 'info')
-        }
-        })
-}) */

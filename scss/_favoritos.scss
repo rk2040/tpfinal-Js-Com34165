@@ -1,0 +1,52 @@
+
+.carrito-productos{
+    display: flex;
+    flex-direction: column;
+}
+
+.favoritos-vacio{
+    display: none;
+}
+.favoritos-imagen{
+    height: auto;
+    width: 10rem;
+    border-radius: 1rem;
+}
+
+.container-favoritos{
+    @extend .box-color;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+    img{
+        justify-content: center;
+        width: 100px;
+    }
+    h2{
+        margin-bottom: 2rem;
+    }
+}
+
+.favorito-producto{
+    @extend .box-color;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 1rem;
+    p{
+        font-size: small;
+    }
+}
+.descripcion-descripcion{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.descripcion-barrio{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
