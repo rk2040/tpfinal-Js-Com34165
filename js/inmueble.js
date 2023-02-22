@@ -116,7 +116,7 @@ function agregarInmuebleFavorito(id){
                     title:"Agregado a Favoritos",
                     icon: "success",
                     showConfirmButton: false,
-                    timer: 1000
+                    timer: 500
                 })
                 modal.style.display = "none";
             }
@@ -126,7 +126,7 @@ function agregarInmuebleFavorito(id){
                     title:"Ya esta en Favoritos",
                     icon: "warning",
                     showConfirmButton: false,
-                    timer: 1000
+                    timer: 500
                 })
                 modal.style.display = "none";
             }

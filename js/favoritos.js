@@ -99,7 +99,7 @@ function eliminarDeFavoritos(id){
         title: "Eliminado de Favoritos",
         icon: "success",
         showConfirmButton: false,
-        timer: 1000
+        timer: 500
     })
     modal.style.display = "none";
 }
