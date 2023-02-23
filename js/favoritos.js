@@ -15,6 +15,8 @@ btnOpcionZonaFavorito.innerHTML += `<button class="ordenZona" id="Norte" type="b
 btnOpcionZonaFavorito.innerHTML += `<button class="ordenZona" id="Sur" type="button" onclick="filtroZonaFavoritos(this.id)">Zona Sur</button>`;
 btnOpcionZonaFavorito.innerHTML += `<a class="nav-link active" href="#inicio-page"><button class="calcular">Volver a inicio</button></a>`;
 
+let listaFavoritos = obtenerFavoritosLocalStorage();
+
 function mostrarInmueblesFavoritos(lista){
     contenedorFavoritos.innerHTML = "";
     loadFavorito.style.display = "";
@@ -56,13 +58,6 @@ function mostrarInmueblesFavoritos(lista){
     }, 500) 
 }
 
-function obtenerFavoritosLocalStorage(){
-    let lista = JSON.parse(localStorage.getItem("favoritos"));
-    mostrarInmueblesFavoritos(lista);
-}
-
-obtenerFavoritosLocalStorage();
-
 function filtroZonaFavoritos(tipoOrden){
     let listaFavoritos = JSON.parse(localStorage.getItem("favoritos"));
     resultado = listaFavoritos.filter((barrio) => barrio.zona.includes(tipoOrden));
@@ -98,5 +93,4 @@ function eliminarDeFavoritos(id){
         showConfirmButton: false,
         timer: 500
     })
-    modal.style.display = "none";
 }

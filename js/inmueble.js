@@ -51,7 +51,6 @@ function mostrarInmuebles(lista){
                 </div>
                 <div>
                     <button id="${inmueble.id}" class="agregar-favorito favorito" onclick="agregarInmuebleFavorito(this.id)">Agregar Favorito</button>
-                    <button id="ir-favorito" class="calcular" >Ir a Favorito</button>
                 </div>
             `;
             contenedorInmuebles.append(div);
@@ -99,16 +98,13 @@ let inmueblesEnFavoritos = [];
 
 function agregarInmuebleFavorito(id){
     let inmuebleAgregado;
-    inmueblesEnFavoritos = JSON.parse(localStorage.getItem("favoritos"));
-    localStorage.setItem("favoritos", JSON.stringify(inmueblesEnFavoritos));
     fetch(rutaInmuebles)
     .then( (res)=> res.json() )
     .then( (lista) => {
             inmuebleAgregado = lista.find((inmueble) => inmueble.id === id);
-            inmueblesEnFavoritos = JSON.parse(localStorage.getItem("favoritos"));
-            if( !(inmueblesEnFavoritos.some((inmueble) => inmueble.id === id)) ){
-                inmueblesEnFavoritos.push(inmuebleAgregado);
-                guardarFavoritosLocalStorage(inmueblesEnFavoritos);
+            inmueblesEnFavoritos.push(inmuebleAgregado);
+            guardarFavoritosLocalStorage(inmueblesEnFavoritos);
+            if( (inmueblesEnFavoritos.some((inmueble) => inmueble === inmuebleAgregado)) ){
                 console.log(inmueblesEnFavoritos);
                 Swal.fire({
                     color: '#FFC900',
@@ -117,7 +113,7 @@ function agregarInmuebleFavorito(id){
                     showConfirmButton: false,
                     timer: 500
                 })
-               // modal.style.display = "none";
+                obtenerFavoritosLocalStorage();
             }
             else{
                 Swal.fire({
@@ -127,7 +123,7 @@ function agregarInmuebleFavorito(id){
                     showConfirmButton: false,
                     timer: 500
                 })
-               // modal.style.display = "none";
+                obtenerFavoritosLocalStorage();
             }
         })
 }
