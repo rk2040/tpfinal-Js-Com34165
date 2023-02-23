@@ -76,14 +76,14 @@ footer{
 
 .container-grid-index{
     height: auto;
+    width:100%;
     margin: auto;
     margin-top: 200px;
-    margin-bottom: 250px;
     row-gap: 20px;
     column-gap: 10px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 0.02fr 0.8fr 0.5fr 0.5fr;
+    grid-template-rows: 0.02fr 0.4fr 0.3fr 0.3fr 0.8fr 0.6fr;
     flex-direction: column;
     justify-content: center;
 
@@ -92,6 +92,8 @@ footer{
     "mapa   mapa    mapa     mapa"
     "filtro filtro  medidas  medidas"
     "filtro filtro  calculos calculos"
+    "inmuebles  inmuebles   inmuebles   inmuebles"
+    "favoritos  favoritos   favoritos   favoritos"
     ;
 }
 
@@ -100,7 +102,6 @@ footer{
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
     flex-direction: row;
-    /* align-items: stretch; */
     
     grid-template-areas:
     "login"
@@ -143,15 +144,6 @@ input{
 .msjError{
     grid-area: error;
 }
-/* #mts2{
-    grid-area: mts;
-}
-#valorTotal{
-    grid-area: total;
-}
-.borrar{
-    grid-area: borrar;
-} */
 .boton{
     display: flex;
     flex-direction: column;
@@ -175,4 +167,13 @@ input{
     "labe       input"
     "error      error"
     ;
+}
+
+// inmueble
+.container-grid-inmueble{
+    grid-area: inmuebles;
+}
+
+.container-grid-favorito{
+    grid-area: favoritos;
 }

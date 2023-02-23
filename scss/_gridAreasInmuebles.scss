@@ -7,9 +7,8 @@
 }
 
 .container-grid-inmueble{
-    height: auto;
-    margin-top: 200px;
-    margin-bottom: 250px;
+    margin: auto;
+    width: 90%;
     row-gap: 20px;
     column-gap: 10px;
     display: grid;
@@ -19,7 +18,6 @@
     justify-content: center;
 
     grid-template-areas:
-    "ingreso    ingreso      ingreso      ingreso"
     "opciones   inmuebles    inmuebles    inmuebles"
     ;
 }
@@ -28,9 +26,9 @@
     grid-area: favoritos;
 }
 .container-grid-favorito{
-    height: auto;
-    margin-top: 200px;
+    margin: auto;
     margin-bottom: 250px;
+    width: 90%;
     row-gap: 20px;
     column-gap: 10px;
     display: grid;
@@ -40,7 +38,6 @@
     justify-content: center;
 
     grid-template-areas:
-    "ingreso    ingreso      ingreso      ingreso"
     "opciones   favoritos    favoritos    favoritos"
     ;
 }

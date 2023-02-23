@@ -1,20 +1,19 @@
 
 .container-opciones{
     @extend .box-color;
-    width: auto;
-    height: auto;
+    width: 90%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 20px;
-    position: sticky;
-    top: 0;
-    height: 100vh;
+    padding: 20px;
     h2{
         margin-bottom: 2rem;
     }
 }
+
 .botones-opciones{
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,12 +21,12 @@
 }
 .container-inmuebles{
     @extend .box-color;
-    width: auto;
-    height: auto;
+    max-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-right: 20px;
+    padding: 20px;
     img{
         justify-content: center;
         width: 200px;
@@ -36,6 +35,27 @@
         margin-bottom: 2rem;
     }
 }
+.cuadro-inmuebles{
+    @extend .box-color;
+    border-radius: 10px;
+    background-color: rgba($color-principal, 0.3);
+    overflow-y: scroll;
+}
+//barra de scroll----------------------------
+.cuadro-inmuebles::-webkit-scrollbar{
+    width: 10px;
+}
+.cuadro-inmuebles::-webkit-scrollbar-thumb{
+    background: $color-detalles;
+    border-radius: 400px;
+}
+body::-webkit-scrollbar{
+    width: 10px;
+}
+body::-webkit-scrollbar-thumb{
+    background: rgba($color-principal, 0.4);
+}
+
 .inmueble-imagen{
     max-width: 100%;
     border-radius: 1rem;

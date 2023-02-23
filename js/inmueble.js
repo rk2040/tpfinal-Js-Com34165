@@ -15,11 +15,7 @@ btnOpcionZonaInmueble.innerHTML += `<button class="ordenZona" id="Este" type="bu
 btnOpcionZonaInmueble.innerHTML += `<button class="ordenZona" id="Oeste" type="button" onclick="filtroZonaInmueble(this.id)">Zona Oeste</button>`;
 btnOpcionZonaInmueble.innerHTML += `<button class="ordenZona" id="Norte" type="button" onclick="filtroZonaInmueble(this.id)">Zona Norte</button>`;
 btnOpcionZonaInmueble.innerHTML += `<button class="ordenZona" id="Sur" type="button" onclick="filtroZonaInmueble(this.id)">Zona Sur</button>`;
-
-if(localStorage.getItem("nombreUs")){
-    let nombre = JSON.parse(localStorage.getItem("nombreUs"));
-    if(nombre != "") document.getElementById("saludo").innerHTML = `Bienvenido ${nombre}, gracias por visitarnos`;
-}
+btnOpcionZonaInmueble.innerHTML += `<a class="nav-link active" href="#inicio-page"><button class="calcular">Volver a inicio</button></a>`;
 
 function mostrarInmuebles(lista){
     contenedorInmuebles.innerHTML = "";
@@ -54,7 +50,8 @@ function mostrarInmuebles(lista){
                     <p class="inmueble-precio">$${inmueble.precio}</p>
                 </div>
                 <div>
-                    <button id="${inmueble.id}" class="agregar-favorito favorito" onclick="agregarInmuebleFavorito(this.id)">Favorito</button>
+                    <button id="${inmueble.id}" class="agregar-favorito favorito" onclick="agregarInmuebleFavorito(this.id)">Agregar Favorito</button>
+                    <button id="ir-favorito" class="calcular" >Ir a Favorito</button>
                 </div>
             `;
             contenedorInmuebles.append(div);
@@ -102,6 +99,8 @@ let inmueblesEnFavoritos = [];
 
 function agregarInmuebleFavorito(id){
     let inmuebleAgregado;
+    inmueblesEnFavoritos = JSON.parse(localStorage.getItem("favoritos"));
+    localStorage.setItem("favoritos", JSON.stringify(inmueblesEnFavoritos));
     fetch(rutaInmuebles)
     .then( (res)=> res.json() )
     .then( (lista) => {
@@ -118,7 +117,7 @@ function agregarInmuebleFavorito(id){
                     showConfirmButton: false,
                     timer: 500
                 })
-                modal.style.display = "none";
+               // modal.style.display = "none";
             }
             else{
                 Swal.fire({
@@ -128,7 +127,7 @@ function agregarInmuebleFavorito(id){
                     showConfirmButton: false,
                     timer: 500
                 })
-                modal.style.display = "none";
+               // modal.style.display = "none";
             }
         })
 }

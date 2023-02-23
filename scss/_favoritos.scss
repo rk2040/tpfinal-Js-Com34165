@@ -15,8 +15,7 @@
 
 .container-favoritos{
     @extend .box-color;
-    width: auto;
-    height: auto;
+    max-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,6 +28,27 @@
         margin-bottom: 2rem;
     }
 }
+.cuadro-favoritos{
+    @extend .box-color;
+    border-radius: 10px;
+    background-color: rgba($color-principal, 0.3);
+    overflow-y: scroll;
+}
+//barra de scroll----------------------------
+.cuadro-favoritos::-webkit-scrollbar{
+    width: 10px;
+}
+.cuadro-favoritos::-webkit-scrollbar-thumb{
+    background: $color-detalles;
+    border-radius: 400px;
+}
+body::-webkit-scrollbar{
+    width: 10px;
+}
+body::-webkit-scrollbar-thumb{
+    background: rgba($color-principal, 0.4);
+}
+
 
 .favorito-producto{
     @extend .box-color;

@@ -59,13 +59,6 @@ if(localStorage.getItem("nombreUs")){
     if(nombre != "") document.getElementById("saludo").innerHTML = `Bienvenido ${nombre}, gracias por visitarnos`;
 }
 
-// Recupero tabla del LS
-if(localStorage.getItem("favoritos")){
-    let lista = JSON.parse(localStorage.getItem("favoritos"));
-    mostrarInmueblesFavoritos(lista);
-}
-
-// Inmuebles.html //Favoritos.html
 function guardarFavoritosLocalStorage(lista){
     localStorage.setItem("favoritos", JSON.stringify(lista));
 }

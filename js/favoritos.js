@@ -1,6 +1,7 @@
 // favoritos
 const contenedorFavoritos = document.getElementById("contenedor-favoritos");
 const btnOpcionZonaFavorito = document.getElementById("btnZonaFavorito");
+const loadFavorito = document.getElementById("loader-favorito");
 
 btnOpcionZonaFavorito.innerHTML += `<label>Buscar Barrio</label>`;
 btnOpcionZonaFavorito.innerHTML += `<input id="buscadorFav"></input>`;
@@ -12,18 +13,14 @@ btnOpcionZonaFavorito.innerHTML += `<button class="ordenZona" id="Este" type="bu
 btnOpcionZonaFavorito.innerHTML += `<button class="ordenZona" id="Oeste" type="button" onclick="filtroZonaFavoritos(this.id)">Zona Oeste</button>`;
 btnOpcionZonaFavorito.innerHTML += `<button class="ordenZona" id="Norte" type="button" onclick="filtroZonaFavoritos(this.id)">Zona Norte</button>`;
 btnOpcionZonaFavorito.innerHTML += `<button class="ordenZona" id="Sur" type="button" onclick="filtroZonaFavoritos(this.id)">Zona Sur</button>`;
-
-if(localStorage.getItem("nombreUs")){
-    let nombre = JSON.parse(localStorage.getItem("nombreUs"));
-    if(nombre != "") document.getElementById("saludo").innerHTML = `Bienvenido ${nombre}, gracias por visitarnos`;
-}
+btnOpcionZonaFavorito.innerHTML += `<a class="nav-link active" href="#inicio-page"><button class="calcular">Volver a inicio</button></a>`;
 
 function mostrarInmueblesFavoritos(lista){
     contenedorFavoritos.innerHTML = "";
-    loadInmueble.style.display = "";
+    loadFavorito.style.display = "";
     setTimeout( () => {
         lista.forEach(inmueble => {
-            loadInmueble.style.display = "none";
+            loadFavorito.style.display = "none";
             const div = document.createElement("div");
             div.classList.add("inmueble-producto");
             div.innerHTML = `
@@ -64,7 +61,7 @@ function obtenerFavoritosLocalStorage(){
     mostrarInmueblesFavoritos(lista);
 }
 
-obtenerFavoritosLocalStorage()
+obtenerFavoritosLocalStorage();
 
 function filtroZonaFavoritos(tipoOrden){
     let listaFavoritos = JSON.parse(localStorage.getItem("favoritos"));

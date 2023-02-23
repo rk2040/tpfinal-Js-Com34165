@@ -13,7 +13,7 @@ html {
 }
 
 /* extend */
-.box-color, .contenedorTabla, .form, .filtro, .mapa, footer, header, .favorito-producto, .container-favoritos, .inmueble-producto, .container-inmuebles, .container-opciones {
+.box-color, .contenedorTabla, .form, .filtro, .mapa, footer, header, .favorito-producto, .cuadro-favoritos, .container-favoritos, .inmueble-producto, .cuadro-inmuebles, .container-inmuebles, .container-opciones {
   width: 100%;
   height: auto;
   padding: 10px;
@@ -105,18 +105,18 @@ footer {
 
 .container-grid-index {
   height: auto;
+  width: 100%;
   margin: auto;
   margin-top: 200px;
-  margin-bottom: 250px;
   row-gap: 20px;
   -moz-column-gap: 10px;
        column-gap: 10px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 0.02fr 0.8fr 0.5fr 0.5fr;
+  grid-template-rows: 0.02fr 0.4fr 0.3fr 0.3fr 0.8fr 0.6fr;
   flex-direction: column;
   justify-content: center;
-  grid-template-areas: "ingreso ingreso ingreso ingreso" "mapa   mapa    mapa     mapa" "filtro filtro  medidas  medidas" "filtro filtro  calculos calculos";
+  grid-template-areas: "ingreso ingreso ingreso ingreso" "mapa   mapa    mapa     mapa" "filtro filtro  medidas  medidas" "filtro filtro  calculos calculos" "inmuebles  inmuebles   inmuebles   inmuebles" "favoritos  favoritos   favoritos   favoritos";
 }
 
 .ingreso {
@@ -124,7 +124,6 @@ footer {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
   flex-direction: row;
-  /* align-items: stretch; */
   grid-template-areas: "login" "saludo";
 }
 
@@ -162,15 +161,6 @@ input {
   grid-area: error;
 }
 
-/* #mts2{
-    grid-area: mts;
-}
-#valorTotal{
-    grid-area: total;
-}
-.borrar{
-    grid-area: borrar;
-} */
 .boton {
   display: flex;
   flex-direction: column;
@@ -191,6 +181,14 @@ input {
   grid-template-areas: "labe       input" "labe       input" "labe       input" "labe       input" "error      error";
 }
 
+.container-grid-inmueble {
+  grid-area: inmuebles;
+}
+
+.container-grid-favorito {
+  grid-area: favoritos;
+}
+
 .container-opciones {
   grid-area: opciones;
 }
@@ -200,9 +198,8 @@ input {
 }
 
 .container-grid-inmueble {
-  height: auto;
-  margin-top: 200px;
-  margin-bottom: 250px;
+  margin: auto;
+  width: 90%;
   row-gap: 20px;
   -moz-column-gap: 10px;
        column-gap: 10px;
@@ -211,7 +208,7 @@ input {
   grid-template-rows: 0.5fr, 4fr;
   flex-direction: column;
   justify-content: center;
-  grid-template-areas: "ingreso    ingreso      ingreso      ingreso" "opciones   inmuebles    inmuebles    inmuebles";
+  grid-template-areas: "opciones   inmuebles    inmuebles    inmuebles";
 }
 
 .container-favoritos {
@@ -219,9 +216,9 @@ input {
 }
 
 .container-grid-favorito {
-  height: auto;
-  margin-top: 200px;
+  margin: auto;
   margin-bottom: 250px;
+  width: 90%;
   row-gap: 20px;
   -moz-column-gap: 10px;
        column-gap: 10px;
@@ -230,25 +227,23 @@ input {
   grid-template-rows: 0.5fr, 4fr;
   flex-direction: column;
   justify-content: center;
-  grid-template-areas: "ingreso    ingreso      ingreso      ingreso" "opciones   favoritos    favoritos    favoritos";
+  grid-template-areas: "opciones   favoritos    favoritos    favoritos";
 }
 
 .container-opciones {
-  width: auto;
-  height: auto;
+  width: 90%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 20px;
-  position: sticky;
-  top: 0;
-  height: 100vh;
+  padding: 20px;
 }
 .container-opciones h2 {
   margin-bottom: 2rem;
 }
 
 .botones-opciones {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -256,12 +251,12 @@ input {
 }
 
 .container-inmuebles {
-  width: auto;
-  height: auto;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-right: 20px;
+  padding: 20px;
 }
 .container-inmuebles img {
   justify-content: center;
@@ -269,6 +264,29 @@ input {
 }
 .container-inmuebles h2 {
   margin-bottom: 2rem;
+}
+
+.cuadro-inmuebles {
+  border-radius: 10px;
+  background-color: rgba(22, 147, 181, 0.3);
+  overflow-y: scroll;
+}
+
+.cuadro-inmuebles::-webkit-scrollbar {
+  width: 10px;
+}
+
+.cuadro-inmuebles::-webkit-scrollbar-thumb {
+  background: rgb(177, 87, 87);
+  border-radius: 400px;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(22, 147, 181, 0.4);
 }
 
 .inmueble-imagen {
@@ -309,8 +327,7 @@ input {
 }
 
 .container-favoritos {
-  width: auto;
-  height: auto;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -322,6 +339,29 @@ input {
 }
 .container-favoritos h2 {
   margin-bottom: 2rem;
+}
+
+.cuadro-favoritos {
+  border-radius: 10px;
+  background-color: rgba(22, 147, 181, 0.3);
+  overflow-y: scroll;
+}
+
+.cuadro-favoritos::-webkit-scrollbar {
+  width: 10px;
+}
+
+.cuadro-favoritos::-webkit-scrollbar-thumb {
+  background: rgb(177, 87, 87);
+  border-radius: 400px;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(22, 147, 181, 0.4);
 }
 
 .favorito-producto {
